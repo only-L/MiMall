@@ -7,8 +7,17 @@
 </template>
 
 <script>
-export default {}
+// 添加组件
+import NavHeader from './../components/NavHeader'
+import NavFooter from './../components/NavFooter'
+export default {
+  name: 'nav-home',
+  components: {
+    NavHeader,
+    NavFooter
+  }
+}
 </script>
 
-<style lang="less">
+<style lang="scss">
 </style>

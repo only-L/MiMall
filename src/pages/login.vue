@@ -1,3 +1,3 @@
-<style lang="less">
+<style lang="scss">
 // 登录
 </style>

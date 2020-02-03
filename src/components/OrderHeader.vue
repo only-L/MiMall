@@ -1,13 +1,12 @@
 <template>
-  <div>orderConfirm</div>
+  <div>order-header</div>
 </template>
 
 <script>
 export default {
-  name: 'order-confirm'
+  name: 'order-header'
 }
 </script>
 
 <style lang="scss">
-// 订单确认
 </style>
