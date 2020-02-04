@@ -5,19 +5,19 @@
 </template>
 
 <script>
-import storage from './storage/index'
 export default {
   name: 'app',
   components: {},
   data() {
-    return {}
+    return {
+      res: {}
+    }
   },
   mounted() {
-    // storage.setItem('a', 1)
-    // storage.setItem('user', { 'name': 1 })
-    // storage.setItem('abc', { 'name': 2 }, 'user')
-    storage.clear('a')
-    storage.clear('abc', 'user')
+    // vue-axios插件，可以把axios对象挂载到vue实例上
+    this.axios.get('/mock/user/login.json').then((res) => {
+      this.res = res
+    })
   }
 }
 </script>
