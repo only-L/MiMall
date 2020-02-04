@@ -5,8 +5,15 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 // import env from './env'
 
+// mock开关
+const mock = true
+if (mock) {
+  // 从上到下执行时再加载，import编译时就会加载再内存中
+  require('./mock/api')
+}
 // 根据前端的跨域方式做调整 /a/b  :  /api/a/b => /a/b
-// axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = '/api'
+// axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5e391476f35d4261222b2fd6/example'
 // 超时时间
 axios.defaults.timeout = 8000
 // 根据环境变量获取不同的请求地址
