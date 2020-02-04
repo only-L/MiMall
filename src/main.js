@@ -6,7 +6,7 @@ import VueAxios from 'vue-axios'
 // import env from './env'
 
 // mock开关
-const mock = true
+const mock = false
 if (mock) {
   // 从上到下执行时再加载，import编译时就会加载再内存中
   require('./mock/api')
