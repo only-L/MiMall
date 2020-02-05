@@ -12,6 +12,15 @@
           <a href="javascript:;">金融</a>
           <a href="javascript:;">小爱开放平台</a>
           <a href="javascript:;">协议规则</a>
+          <div class="app">
+            <a href="javascript:;">下载app</a>
+            <div class="active">
+              <div class="act-img">
+                <img src="/imgs/miCode.png" alt />
+              </div>
+              <div class="act-app">小米商城APP</div>
+            </div>
+          </div>
         </div>
         <!-- 右边部分 -->
         <div class="topbar-user">
@@ -190,6 +199,62 @@ export default {
     .container {
       // 两边对齐
       @include flex();
+      .app {
+        display: inline-block;
+        position: relative;
+        &:hover {
+          a {
+            color: #ffff;
+          }
+          .active {
+            height: 148px;
+            opacity: 1;
+            overflow:visible;
+          }
+        }
+        .active {
+          position: absolute;
+          top: 39px;
+          left: -30px;
+          width: 124px;
+          background-color: #ffffff;
+          box-shadow: 0 1px 5px #aaa;
+          z-index: 11;
+          font-size: 12px;
+          line-height: 12px;
+          text-align: center;
+          height: 0px;
+          opacity: 0;
+          overflow: hidden;
+          transition: all 0.5s;
+          .act-img {
+            display: inline-block;
+            height: 121px;
+            img {
+              height: 90px;
+              width: 90px;
+              margin: 18px 17px 12px;
+            }
+          }
+          .act-app {
+            display: block;
+          }
+        }
+        // 绘制三角形
+        .active:before {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: -8px;
+          width: 0;
+          height: 0;
+          margin-left: -8px;
+          border-width: 0 8px 8px;
+          border-style: solid;
+          border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #ffffff;
+          margin: 0 0 0 -8px;
+        }
+      }
       a {
         display: inline-block;
         color: #b0b0b0;
@@ -281,6 +346,7 @@ export default {
             width: 1226px;
             height: 0px;
             opacity: 0;
+            background-color: #ffffff;
             border-top: 1px solid #e5e5e5;
             box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
             z-index: 10;
