@@ -37,7 +37,82 @@
         <div class="header-menu">
           <div class="item-menu">
             <span>小米手机</span>
-            <div class="children"></div>
+            <div class="children">
+              <ul>
+                <li class="product">
+                  <a href target="_blank">
+                    <div class="pro-img">
+                      <img
+                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
+                        alt
+                      />
+                    </div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href target="_blank">
+                    <div class="pro-img">
+                      <img
+                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
+                        alt
+                      />
+                    </div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href target="_blank">
+                    <div class="pro-img">
+                      <img
+                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
+                        alt
+                      />
+                    </div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href target="_blank">
+                    <div class="pro-img">
+                      <img
+                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
+                        alt
+                      />
+                    </div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href target="_blank">
+                    <div class="pro-img">
+                      <img
+                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
+                        alt
+                      />
+                    </div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href target="_blank">
+                    <div class="pro-img">
+                      <img
+                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
+                        alt
+                      />
+                    </div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="item-menu">
             <span>RedMi红米</span>
@@ -45,7 +120,64 @@
           </div>
           <div class="item-menu">
             <span>电视</span>
-            <div class="children"></div>
+            <div class="children">
+              <ul>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="/imgs/nav-img/nav-3-1.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米壁画电视 65英寸</div>
+                    <div class="pro-price">6999元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="/imgs/nav-img/nav-3-2.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米全面屏电视E55A</div>
+                    <div class="pro-price">1999元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="/imgs/nav-img/nav-3-3.png" alt="">
+                    </div>
+                    <div class="pro-name">小米电视4A 32英寸</div>
+                    <div class="pro-price">699元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="/imgs/nav-img/nav-3-4.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米电视4A 55英寸</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="/imgs/nav-img/nav-3-5.jpg" alt="">
+                    </div>
+                    <div class="pro-name">小米电视4A 65英寸</div>
+                    <div class="pro-price">2699元</div>
+                  </a>
+                </li>
+                <li class="product">
+                  <a href="" target="_blank">
+                    <div class="pro-img">
+                      <img src="/imgs/nav-img/nav-3-6.png" alt="">
+                    </div>
+                    <div class="pro-name">查看全部</div>
+                    <div class="pro-price">查看全部</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <!-- 搜索框 -->
@@ -69,6 +201,7 @@ export default {
 <style lang="scss">
 @import './../assets/scss/base.scss';
 @import './../assets/scss/mixin.scss';
+@import './../assets/scss/config.scss';
 .header {
   .nav-topbar {
     height: 39px;
@@ -88,7 +221,7 @@ export default {
         text-align: center;
         color: #ffffff;
         .icon-cart {
-          @include bgImg(16px,12px,'/imgs/icon-cart-checked.png');
+          @include bgImg(16px, 12px, '/imgs/icon-cart-checked.png');
           /* display: inline-block;
           width: 16px;
           height: 12px;
@@ -104,6 +237,7 @@ export default {
     .container {
       height: 112px;
       @include flex();
+      position: relative;
       .header-logo {
         display: inline-block;
         width: 55px;
@@ -116,7 +250,7 @@ export default {
           // scss伪类选择器
           &:before {
             content: '';
-            @include bgImg(55px,55px,'/imgs/mi-logo.png',55px);
+            @include bgImg(55px, 55px, '/imgs/mi-logo.png', 55px);
             /* display: inline-block;
             width: 55px;
             height: 55px;
@@ -126,7 +260,7 @@ export default {
           }
           &:after {
             content: '';
-            @include bgImg(55px,55px,'/imgs/mi-home.png',55px);
+            @include bgImg(55px, 55px, '/imgs/mi-home.png', 55px);
             /* display: inline-block;
             width: 55px;
             height: 55px;
@@ -151,8 +285,68 @@ export default {
           line-height: 112px;
           span {
             cursor: pointer;
+            padding: 0 10px;
           }
           &:hover {
+            color: $colorA;
+            .children {
+              height: 220px;
+              opacity: 1;
+            }
+          }
+          .children {
+            position: absolute;
+            top: 112px;
+            left: 0;
+            width: 1226px;
+            height: 0px;
+            opacity: 0;
+            border-top: 1px solid #e5e5e5;
+            box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
+            z-index: 10;
+            overflow: hidden;
+            transition: all .5s;;
+            .product {
+              position: relative;
+              float: left;
+              width: 16.6%;
+              height: 220px;
+              font-size: 12px;
+              line-height: 12px;
+              text-align: center;
+              a {
+                display: inline-block;
+              }
+              .pro-img {
+                height: 137px;
+                img {
+                  width: auto;
+                  height: 111px;
+                  margin-top: 26px;
+                }
+              }
+              .pro-name {
+                font-weight: bold;
+                margin-top: 19px;
+                margin-bottom: 8px;
+                color: $colorB;
+              }
+              .pro-price {
+                color: $colorA;
+              }
+              &:before {
+                content: '';
+                position: absolute;
+                top: 28px;
+                right: 0;
+                border-left: 1px solid $colorF;
+                height: 99px;
+                width: 1px;
+              }
+              &:last-child:before{
+                display: none;
+              }
+            }
           }
         }
       }
@@ -173,7 +367,7 @@ export default {
             padding: 0 14px;
           }
           a {
-            @include bgImg(18px,18px,'/imgs/icon-search.png');
+            @include bgImg(18px, 18px, '/imgs/icon-search.png');
             /* display: inline-block;
             width: 18px;
             height: 18px;
