@@ -9,16 +9,12 @@ export default {
   name: 'app',
   components: {},
   data() {
-    return {
-
-    }
+    return {}
   },
-  mounted() {
-
-  }
+  mounted() {}
 }
 </script>
 
 <style>
-@import './assets/scss/reset.scss'
+@import './assets/scss/reset.scss';
 </style>

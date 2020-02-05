@@ -15,9 +15,10 @@
         </div>
         <!-- 右边部分 -->
         <div class="topbar-user">
-          <a href="javascript:;">登录</a>
-          <a href="javascript:;">注册</a>
-          <a href="javascript:;" class="my-cart">
+          <a href="javascript:;" v-if="username">{{username}}</a>
+          <a href="javascript:;" v-if="!username" @click="login">登录</a>
+          <a href="javascript:;">我的订单</a>
+          <a href="javascript:;" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>购物车
           </a>
         </div>
@@ -39,76 +40,14 @@
             <span>小米手机</span>
             <div class="children">
               <ul>
-                <li class="product">
-                  <a href target="_blank">
+                <li :key="index" v-for="(item,index) in phoneList" class="product">
+                  <!-- 使用指令后""里面是变量 -->
+                  <a :href="'/#/product/'+item.id" target="_blank">
                     <div class="pro-img">
-                      <img
-                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
-                        alt
-                      />
+                      <img :src="item.mainImage" :alt="item.name" />
                     </div>
-                    <div class="pro-name">小米CC9</div>
-                    <div class="pro-price">1799元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img
-                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
-                        alt
-                      />
-                    </div>
-                    <div class="pro-name">小米CC9</div>
-                    <div class="pro-price">1799元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img
-                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
-                        alt
-                      />
-                    </div>
-                    <div class="pro-name">小米CC9</div>
-                    <div class="pro-price">1799元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img
-                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
-                        alt
-                      />
-                    </div>
-                    <div class="pro-name">小米CC9</div>
-                    <div class="pro-price">1799元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img
-                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
-                        alt
-                      />
-                    </div>
-                    <div class="pro-name">小米CC9</div>
-                    <div class="pro-price">1799元</div>
-                  </a>
-                </li>
-                <li class="product">
-                  <a href target="_blank">
-                    <div class="pro-img">
-                      <img
-                        src="//cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png?thumb=1&w=160&h=110"
-                        alt
-                      />
-                    </div>
-                    <div class="pro-name">小米CC9</div>
-                    <div class="pro-price">1799元</div>
+                    <div class="pro-name">{{item.name}}</div>
+                    <div class="pro-price">{{item.price|currency}}</div>
                   </a>
                 </li>
               </ul>
@@ -123,54 +62,54 @@
             <div class="children">
               <ul>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-1.jpg" alt="">
+                      <img src="/imgs/nav-img/nav-3-1.jpg" alt />
                     </div>
                     <div class="pro-name">小米壁画电视 65英寸</div>
                     <div class="pro-price">6999元</div>
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-2.jpg" alt="">
+                      <img src="/imgs/nav-img/nav-3-2.jpg" alt />
                     </div>
                     <div class="pro-name">小米全面屏电视E55A</div>
                     <div class="pro-price">1999元</div>
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-3.png" alt="">
+                      <img src="/imgs/nav-img/nav-3-3.png" alt />
                     </div>
                     <div class="pro-name">小米电视4A 32英寸</div>
                     <div class="pro-price">699元</div>
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-4.jpg" alt="">
+                      <img src="/imgs/nav-img/nav-3-4.jpg" alt />
                     </div>
                     <div class="pro-name">小米电视4A 55英寸</div>
                     <div class="pro-price">1799元</div>
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-5.jpg" alt="">
+                      <img src="/imgs/nav-img/nav-3-5.jpg" alt />
                     </div>
                     <div class="pro-name">小米电视4A 65英寸</div>
                     <div class="pro-price">2699元</div>
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a href target="_blank">
                     <div class="pro-img">
-                      <img src="/imgs/nav-img/nav-3-6.png" alt="">
+                      <img src="/imgs/nav-img/nav-3-6.png" alt />
                     </div>
                     <div class="pro-name">查看全部</div>
                     <div class="pro-price">查看全部</div>
@@ -194,7 +133,48 @@
 
 <script>
 export default {
-  name: 'nav-header'
+  name: 'nav-header',
+  data() {
+    return {
+      // 用户名称
+      username: '',
+      phoneList: []
+    }
+  },
+  mounted() {
+    this.getProductList()
+  },
+  filters: {
+    currency(val) {
+      if (!val) return '0.00'
+      return '￥' + val.toFixed(2) + '元'
+    }
+  },
+  methods: {
+    login() {
+      this.$router.push('/login')
+    },
+    getProductList() {
+      this.axios
+        .get('products', {
+          params: {
+            categoryId: '100012'
+            // pageSize:6
+          }
+        })
+        .then(res => {
+          // Math.max(res.list, 6)
+          // 取出6条数据
+          if (res.list.length > 6) {
+            this.phoneList = res.list.slice(0, 6)
+          }
+        })
+    },
+    goToCart() {
+      // 路由跳转到指定页面
+      this.$router.push('/cart')
+    }
+  }
 }
 </script>
 
@@ -305,7 +285,7 @@ export default {
             box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, 0.11);
             z-index: 10;
             overflow: hidden;
-            transition: all .5s;;
+            transition: all 0.5s;
             .product {
               position: relative;
               float: left;
@@ -343,7 +323,7 @@ export default {
                 height: 99px;
                 width: 1px;
               }
-              &:last-child:before{
+              &:last-child:before {
                 display: none;
               }
             }
