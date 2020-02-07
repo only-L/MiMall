@@ -400,14 +400,14 @@ export default {
         width: 319px;
         .wrapper {
           height: 50px;
-          border: 1px solid #ff6600;
+          border: 1px solid #E0E0E0;
           display: flex;
           align-items: center;
           input {
             border: none;
             // 为input指定宽度和高度
             box-sizing: border-box;
-            border-right: 1px solid #ff6600;
+            border-right: 1px solid #E0E0E0;
             width: 264px;
             height: 50px;
             padding: 0 14px;
