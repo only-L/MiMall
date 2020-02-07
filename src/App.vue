@@ -15,6 +15,10 @@ export default {
 }
 </script>
 
-<style>
-@import './assets/scss/reset.scss';
+<style  lang="scss">
+/* 全局样式 */
+@import './assets/scss/reset';
+@import './assets/scss/config';
+// 全局按钮样式
+@import './assets/scss/button';
 </style>

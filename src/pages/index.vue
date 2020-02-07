@@ -163,7 +163,7 @@
                 <div class="item-info">
                   <h3>{{item2.name}}</h3>
                   <p>{{item2.subtitle}}</p>
-                  <p class="price">{{item2.price}}元</p>
+                  <p class="price" @click="addCart(item.id)">{{item2.price}}元</p>
                 </div>
               </div>
             </div>
@@ -172,12 +172,27 @@
       </div>
     </div>
     <ServiceBar></ServiceBar>
+    <Modal
+      title="提示！"
+      sureText="查看购物车"
+      btnType="1"
+      modalType="middle"
+      :showModal="showModal"
+      @submit="goCart"
+      @cancel="showModal=false"
+    >
+      <template v-slot:body>
+        <p>商品添加成功！</p>
+      </template>
+    </Modal>
   </div>
 </template>
 
 <script>
 // 添加组件
 import ServiceBar from './../components/ServiceBar'
+// 弹出组件
+import Modal from './../components/Modal'
 // swiper轮播图插件
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
@@ -186,14 +201,18 @@ export default {
   components: {
     swiper,
     swiperSlide,
-    ServiceBar
+    ServiceBar,
+    Modal
   },
   data() {
     return {
       // 所有的参数同 swiper 官方 api 参数
       swiperOption: {
         // 自动播放
-        autoplay: true,
+        autoplay: {
+          disableOnInteraction: false,
+          delay: 2500
+        },
         // 循环
         loop: true,
         // 切换效果
@@ -284,7 +303,9 @@ export default {
           img: '/imgs/ads/ads-4.jpg'
         }
       ],
-      phoneList: []
+      phoneList: [],
+      // 弹出层的显示与隐藏
+      showModal: false
     }
   },
   mounted() {
@@ -302,6 +323,25 @@ export default {
         .then(res => {
           this.phoneList = [res.list.slice(0, 4), res.list.slice(4, 8)]
         })
+    },
+    // 加入购物车
+    addCart(id) {
+      /* this.axios
+        .post('/carts', {
+          productId: id,
+          selected: true
+        })
+        .then(() => {})
+        .catch(() => {
+          this.showModal = true
+        }) */
+      this.showModal = true
+      // eslint-disable-next-line no-useless-return
+      return
+    },
+    // 跳转购物车
+    goCart() {
+      this.$router.push('/cart')
     }
   }
 }
