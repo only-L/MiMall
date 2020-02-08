@@ -12,7 +12,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-1.png'" alt />
                       {{sub?sub.name:'小米9'}}
                     </a>
                   </li>
@@ -25,7 +25,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-5.webp'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-5.webp'" alt />
                       {{sub?sub.name:'小米电视5 55英寸'}}
                     </a>
                   </li>
@@ -38,7 +38,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-6.webp'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-6.webp'" alt />
                       {{sub?sub.name:'RedmiBook 13'}}
                     </a>
                   </li>
@@ -51,7 +51,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-1.png'" alt />
                       {{sub?sub.name:'小米9'}}
                     </a>
                   </li>
@@ -64,7 +64,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-1.png'" alt />
                       {{sub?sub.name:'小米9'}}
                     </a>
                   </li>
@@ -77,7 +77,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-1.png'" alt />
                       {{sub?sub.name:'小米9'}}
                     </a>
                   </li>
@@ -90,7 +90,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-1.png'" alt />
                       {{sub?sub.name:'小米9'}}
                     </a>
                   </li>
@@ -103,7 +103,7 @@
                 <ul v-for="(item,i) in menuList" v-bind:key="i">
                   <li v-for="(sub,j) in item" v-bind:key="j">
                     <a v-bind:href="sub?'/#/product/'+sub.id:''">
-                      <img v-bind:src="sub?sub.img:'/imgs/item-box-1.png'" alt />
+                      <img v-lazy="sub?sub.img:'/imgs/item-box-1.png'" alt />
                       {{sub?sub.name:'小米9'}}
                     </a>
                   </li>
@@ -129,13 +129,13 @@
       <!-- 四个图 -->
       <div class="ads-box">
         <a v-bind:href="'/#/product/'+item.id" v-for="(item,index) in adsList" v-bind:key="index">
-          <img :src="item.img" alt />
+          <img v-lazy="item.img" alt />
         </a>
       </div>
       <!-- 一张图 -->
       <div class="banner">
         <a :href="'/#/product/30'">
-          <img src="/imgs/banner-1.png" alt />
+          <img v-lazy="'/imgs/banner-1.png'" alt />
         </a>
       </div>
     </div>
@@ -147,7 +147,7 @@
           <!-- 左边大图 -->
           <div class="banner-left">
             <a href="/#/product/35">
-              <img src="/imgs/mix-alpha.jpg" alt />
+              <img v-lazy="'/imgs/mix-alpha.jpg'" alt />
             </a>
           </div>
           <!-- 右边列表 -->
@@ -157,7 +157,7 @@
                 <span :class="{'new-pro':index2%2==0}">新品</span>
                 <!-- 图片 -->
                 <div class="item-img">
-                  <img :src="item2.mainImage" alt />
+                  <img v-lazy="item2.mainImage" alt />
                 </div>
                 <!-- 描述 -->
                 <div class="item-info">
