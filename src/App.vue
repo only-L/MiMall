@@ -11,7 +11,23 @@ export default {
   data() {
     return {}
   },
-  mounted() {}
+  mounted() {
+    this.getUser()
+    this.getCartCount()
+  },
+  methods: {
+    // 登录后获取username
+    getUser() {
+      this.axios.get('/user').then((res = {}) => {
+        this.$store.dispatch('saveUserName', res.username)
+      })
+    },
+    getCartCount() {
+      this.axios.get('/carts/products/sum').then(res => {
+        this.$store.dispatch('saveCartCount', res)
+      })
+    }
+  }
 }
 </script>
 

@@ -5,6 +5,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
+import store from './store'
 // import env from './env'
 
 // mock开关
@@ -30,6 +31,7 @@ axios.interceptors.response.use(function (response) {
     window.location.href = '/#/login'
   } else {
     alert(res.msg)
+    // 抛出异常，不让数据进入login中
     return Promise.reject(res)
   }
 })
@@ -43,5 +45,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

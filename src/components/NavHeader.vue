@@ -28,7 +28,8 @@
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart">
-            <span class="icon-cart"></span>购物车
+            <span class="icon-cart"></span>
+            购物车({{cartCount}})
           </a>
         </div>
       </div>
@@ -141,18 +142,30 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'nav-header',
   data() {
     return {
       // 用户名称
-      username: '',
       phoneList: []
     }
   },
   mounted() {
     this.getProductList()
   },
+  // 解决延迟问题 接口的读取，比组件的渲染慢许多
+  // 如果放在data中，刷新后值为空，app.vue异步赋值，后数据没有改变
+  computed: {
+    /* username() {
+      return this.$store.state.username
+    },
+    cartCount() {
+      return this.$store.state.cartCount
+    } */
+    ...mapState(['username', 'cartCount'])
+  },
+  // 过滤器
   filters: {
     currency(val) {
       if (!val) return '0.00'
@@ -209,7 +222,7 @@ export default {
           .active {
             height: 148px;
             opacity: 1;
-            overflow:visible;
+            overflow: visible;
           }
         }
         .active {
@@ -402,14 +415,14 @@ export default {
         width: 319px;
         .wrapper {
           height: 50px;
-          border: 1px solid #E0E0E0;
+          border: 1px solid #e0e0e0;
           display: flex;
           align-items: center;
           input {
             border: none;
             // 为input指定宽度和高度
             box-sizing: border-box;
-            border-right: 1px solid #E0E0E0;
+            border-right: 1px solid #e0e0e0;
             width: 264px;
             height: 50px;
             padding: 0 14px;

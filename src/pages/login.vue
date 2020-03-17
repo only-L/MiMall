@@ -101,8 +101,10 @@ export default {
           password
         })
         .then(res => {
+          // cookie存放了用户信息
           this.$cookie.set('userId', res.id, { expires: '1M' })
-          // to-do 保存用户名
+          // vex action 保存用户名
+          this.$store.dispatch('saveUserName', res.username)
           this.$router.push('/index')
         })
     },
