@@ -18,12 +18,14 @@ export default {
   methods: {
     // 登录后获取username
     getUser() {
+      // res={},未登录时为空undefined,避免报错
       this.axios.get('/user').then((res = {}) => {
         this.$store.dispatch('saveUserName', res.username)
       })
     },
     getCartCount() {
-      this.axios.get('/carts/products/sum').then(res => {
+      // res=0,未登录时为零，避免为空undefined
+      this.axios.get('/carts/products/sum').then((res = 0) => {
         this.$store.dispatch('saveCartCount', res)
       })
     }
