@@ -25,10 +25,15 @@ axios.defaults.timeout = 8000
 // 接口错误拦截
 axios.interceptors.response.use(function (response) {
   let res = response.data
+  let path = location.hash
   if (res.status === 0) {
     return res.data
   } else if (res.status === 10) {
-    window.location.href = '/#/login'
+    if (path !== '#/index') {
+      window.location.href = '/#/login'
+    }
+    // 抛出错误，未登录时不让代码进栈，避免执行，点击购物车跳转到购物车页面
+    return Promise.reject(res)
   } else {
     alert(res.msg)
     // 抛出异常，不让数据进入login中

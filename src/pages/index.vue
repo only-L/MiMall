@@ -163,7 +163,7 @@
                 <div class="item-info">
                   <h3>{{item2.name}}</h3>
                   <p>{{item2.subtitle}}</p>
-                  <p class="price" @click="addCart(item.id)">{{item2.price}}元</p>
+                  <p class="price" @click="addCart(item2.id)">{{item2.price}}元</p>
                 </div>
               </div>
             </div>
@@ -326,18 +326,15 @@ export default {
     },
     // 加入购物车
     addCart(id) {
-      /* this.axios
+      this.axios
         .post('/carts', {
           productId: id,
           selected: true
         })
-        .then(() => {})
-        .catch(() => {
+        .then(res => {
           this.showModal = true
-        }) */
-      this.showModal = true
-      // eslint-disable-next-line no-useless-return
-      return
+          this.$store.dispatch('saveCartCount', res.cartTotalQuantity)
+        })
     },
     // 跳转购物车
     goCart() {
