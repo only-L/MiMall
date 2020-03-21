@@ -12,6 +12,7 @@ export default {
     return {}
   },
   mounted() {
+    // 登录成功后，再调用方法，获取值
     if (this.$cookie.get('userId')) {
       this.getUser()
       this.getCartCount()

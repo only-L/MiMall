@@ -102,10 +102,16 @@ export default {
         })
         .then(res => {
           // cookie存放了用户信息
-          this.$cookie.set('userId', res.id, { expires: '1M' })
+          this.$cookie.set('userId', res.id, { expires: 'Session' })
           // vex action 保存用户名
           this.$store.dispatch('saveUserName', res.username)
-          this.$router.push('/index')
+          // 登录成功后传递参数，让组件头部组件判断是否调用，获取商品数量
+          this.$router.push({
+            name: 'index',
+            params: {
+              from: 'login'
+            }
+          })
         })
     },
     register() {
@@ -116,7 +122,7 @@ export default {
           email: 'admin1@163.com'
         })
         .then(() => {
-          alert('注册成功')
+          this.$message.success('注册成功')
         })
     }
   }

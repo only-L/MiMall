@@ -26,6 +26,7 @@
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
+          <a href="javascript:;" v-if="username" @click="logout">退出</a>
           <a href="javascript:;">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>
@@ -153,6 +154,11 @@ export default {
   },
   mounted() {
     this.getProductList()
+    // 判断页面无刷新，从login页面登录跳转到首页，再调用一次，获取商品数量的方法
+    let params = this.$route.params
+    if (params && params.from === 'login') {
+      this.getCartCount()
+    }
   },
   // 解决延迟问题 接口的读取，比组件的渲染慢许多
   // 如果放在data中，刷新后值为空，app.vue异步赋值，后数据没有改变
@@ -176,6 +182,13 @@ export default {
     login() {
       this.$router.push('/login')
     },
+    // 获取购物件数
+    getCartCount() {
+      // res=0,未登录时为零，避免为空undefined
+      this.axios.get('/carts/products/sum').then((res = 0) => {
+        this.$store.dispatch('saveCartCount', res)
+      })
+    },
     getProductList() {
       this.axios
         .get('products', {
@@ -191,6 +204,15 @@ export default {
             this.phoneList = res.list.slice(0, 6)
           }
         })
+    },
+    // 退出登录
+    logout() {
+      this.axios.post('/user/logout').then(() => {
+        return this.$message.success('退出成功')
+      })
+      this.$cookie.set('userId', '', { expires: '-1' })
+      this.$store.dispatch('saveUserName', '')
+      this.$store.dispatch('saveCartCount', '0')
     },
     goToCart() {
       // 路由跳转到指定页面
@@ -297,42 +319,6 @@ export default {
       height: 112px;
       @include flex();
       position: relative;
-      .header-logo {
-        display: inline-block;
-        width: 55px;
-        height: 55px;
-        background-color: #ff6600;
-        overflow: hidden;
-        a {
-          display: inline-block;
-          width: 110px;
-          height: 55px;
-          // scss伪类选择器
-          &:before {
-            content: '';
-            @include bgImg(55px, 55px, '/imgs/mi-logo.png', 55px);
-            /* display: inline-block;
-            width: 55px;
-            height: 55px;
-            background: url('/imgs/mi-logo.png') no-repeat center;
-            background-size: 55px; */
-            transition: margin 0.2s;
-          }
-          &:after {
-            content: '';
-            @include bgImg(55px, 55px, '/imgs/mi-home.png', 55px);
-            /* display: inline-block;
-            width: 55px;
-            height: 55px;
-            background: url('/imgs/mi-home.png') no-repeat center;
-            background-size: 55px; */
-          }
-          &:hover:before {
-            margin-left: -55px;
-            transition: margin 0.2s;
-          }
-        }
-      }
       .header-menu {
         display: inline-block;
         width: 643px;

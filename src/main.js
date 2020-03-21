@@ -7,6 +7,8 @@ import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 import store from './store'
 // import env from './env'
+import { Message } from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 // mock开关
 const mock = false
@@ -32,10 +34,12 @@ axios.interceptors.response.use(function (response) {
     if (path !== '#/index') {
       window.location.href = '/#/login'
     }
+    Message.warning('亲，请先登录哦！')
     // 抛出错误，未登录时不让代码进栈，避免执行，点击购物车跳转到购物车页面
     return Promise.reject(res)
   } else {
-    alert(res.msg)
+    // alert(res.msg)
+    Message.warning(res.msg)
     // 抛出异常，不让数据进入login中
     return Promise.reject(res)
   }
@@ -47,6 +51,8 @@ Vue.use(VueLazyLoad, {
   loading: '/imgs/loading-svg/loading-bars.svg'
 })
 Vue.config.productionTip = false
+// element ui message
+Vue.prototype.$message = Message
 
 new Vue({
   router,

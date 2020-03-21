@@ -66,10 +66,13 @@ export default {
     .pro-title {
       font-size: $fontH;
       color: $colorB;
-      font-weight: bold;
+      font-weight: 200;
     }
     .pro-param {
-      font-size: $fontJ;
+      h2 {
+        font-size: $fontJ;
+        font-size: 24px;
+      }
       span {
         margin: 0 10px;
       }
