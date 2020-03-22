@@ -24,7 +24,7 @@
     }
 
     .modal-dialog {
-        @include position(absolute, 35%, 50%, 660px, auto);
+        @include position(absolute, 40%, 50%, 660px, auto);
         background-color: #ffffff;
         transform       : translate(-50%, -50%);
 

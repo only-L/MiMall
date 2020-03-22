@@ -45,6 +45,9 @@ export default {
       font-size: 28px;
       color: #333333;
       margin-left: 54px;
+      h2{
+        font-size: 24px;
+      }
       span {
         font-size: 14px;
         margin-left: 17px;
