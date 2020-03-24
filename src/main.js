@@ -26,6 +26,7 @@ axios.defaults.timeout = 8000
 
 // 接口错误拦截
 axios.interceptors.response.use(function (response) {
+  // 根据接口状态判断(正常或异常)
   let res = response.data
   let path = location.hash
   if (res.status === 0) {
@@ -43,6 +44,12 @@ axios.interceptors.response.use(function (response) {
     // 抛出异常，不让数据进入login中
     return Promise.reject(res)
   }
+}, (error) => {
+  // http状态码的拦截  服务器异常(http请求出现错误，支付成功后，再点击支付，会出现500的错误)
+  let res = error.response
+  Message.error(res.data.message)
+  // 抛出异常,不让代码进栈
+  return Promise.reject(res)
 })
 
 Vue.use(VueAxios, axios)
