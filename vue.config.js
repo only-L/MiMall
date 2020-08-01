@@ -11,5 +11,10 @@ module.exports = {
         }
       }
     }
+  },
+  // publicPath: '/app',
+  productionSourceMap: true,
+  chainWebpack: (config) => {
+    config.plugins.delete('prefetch')
   }
 }

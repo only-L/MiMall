@@ -117,7 +117,7 @@ export default {
       let id = this.$route.params.id
       this.axios.get(`/products/${id}`).then(res => {
         this.product = res
-        console.log(this.product)
+        // console.log(this.product)
       })
     },
     // 跳转当前商品详情页

@@ -51,7 +51,7 @@
             <a href="/">继续购物</a>
             共
             <span>{{list.length}}</span>件商品，已选择
-            <span>3</span>件
+            <span>{{checkedNum}}</span>件
           </div>
           <div class="total fr">
             合计：
