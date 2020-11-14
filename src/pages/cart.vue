@@ -113,7 +113,7 @@ export default {
         if (quantity > item.productStock) {
           return this.$message.warning('购买数量不能超过库存数量')
         }
-        --quantity
+        ++quantity
       } else {
         selected = !item.productSelected
       }
